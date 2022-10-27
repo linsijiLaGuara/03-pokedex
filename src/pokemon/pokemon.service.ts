@@ -14,8 +14,10 @@ constructor(
   private readonly pokemonModel : Model<Pokemon>,
 ){}
 
-  create(createPokemonDto: CreatePokemonDto) {
+   async create(createPokemonDto: CreatePokemonDto) {
     createPokemonDto.name = createPokemonDto.name.toLocaleLowerCase();
+
+    const pokemon = await this.pokemonModel.create(createPokemonDto)
     return createPokemonDto;
   }
 
