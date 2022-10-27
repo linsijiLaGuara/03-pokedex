@@ -15,10 +15,11 @@ constructor(
 ){}
 
    async create(createPokemonDto: CreatePokemonDto) {
+    //pasar a minuscula
     createPokemonDto.name = createPokemonDto.name.toLocaleLowerCase();
 
     const pokemon = await this.pokemonModel.create(createPokemonDto)
-    return createPokemonDto;
+    return pokemon;
   }
 
   findAll() {
